@@ -1,1 +1,4 @@
 .hdl_checker/
+*.zip
+
+.DS_Store
