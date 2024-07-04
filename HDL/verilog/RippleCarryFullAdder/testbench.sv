@@ -5,7 +5,7 @@ module test;
     wire [3:0] s;
     wire cout;
 
-    full_adder_4 dut (
+    adder #(.N(4)) dut (
         .a(a),
         .b(b),
         .cin(cin),

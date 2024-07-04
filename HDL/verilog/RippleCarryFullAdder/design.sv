@@ -13,53 +13,40 @@ module full_adder (
 
 endmodule
 
-module full_adder_4 (
-    input [3:0] a, b,
-    input cin,
-    output [3:0] s,
-    output cout);
+module adder (a, b, cin, s, cout);
+    parameter N = 4;
+    input [N-1:0] a, b;
+    input cin;
+    output [N-1:0] s;
+    output cout;
 
 `ifdef NO_GATES
-    wire [4:0] sum;
+
+    wire [N:0] sum;
     assign sum = a + b + cin;
-    assign s = sum[3:0];
-    assign cout = sum[4];
+    assign s = sum[N-1:0];
+    assign cout = sum[N];
 
 `else
 
-    wire [2:0] carry;
+    wire [N:0] carry;
 
-    full_adder fa0 (
-        .a(a[0]),
-        .b(b[0]),
-        .cin(cin),
-        .s(s[0]),
-        .cout(carry[0])
-    );
+    genvar i;
 
-    full_adder fa1 (
-        .a(a[1]),
-        .b(b[1]),
-        .cin(carry[0]),
-        .s(s[1]),
-        .cout(carry[1])
-    );
+    generate
+        for (i = 0; i < N; i = i + 1) begin
+            full_adder fa (
+                .a(a[i]),
+                .b(b[i]),
+                .cin(carry[i]),
+                .s(s[i]),
+                .cout(carry[i+1])
+            );
+        end
+    endgenerate
 
-    full_adder fa2 (
-        .a(a[2]),
-        .b(b[2]),
-        .cin(carry[1]),
-        .s(s[2]),
-        .cout(carry[2])
-    );
-
-    full_adder fa3 (
-        .a(a[3]),
-        .b(b[3]),
-        .cin(carry[2]),
-        .s(s[3]),
-        .cout(cout)
-    );
+    assign carry[0] = cin;
+    assign cout = carry[N];
 `endif
 
 endmodule
