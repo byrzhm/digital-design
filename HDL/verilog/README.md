@@ -168,13 +168,19 @@ $finish;
 ## Examples
 
 - [D Flip-Flop](https://www.edaplayground.com/x/9)
+- [Registers](https://www.edaplayground.com/x/aZHG)
+- [Counter](https://www.edaplayground.com/x/RysB)
+- [Count to](https://www.edaplayground.com/x/VhGn)
+- [Count down from](https://www.edaplayground.com/x/tJRE)
 - [Ripple Carry Counter](https://www.edaplayground.com/x/B8ix)
+- [Full Adder](https://www.edaplayground.com/x/Ryvg)
 - [Ripple Carry Full Adder](https://www.edaplayground.com/x/MHfx)
 
 ![Ripple Carry Full Adder](../../images/Full-adder.png)
 
 - [Shift Register](https://www.edaplayground.com/x/Ged5)
 - [RAM](https://www.edaplayground.com/x/QpPJ)
+- [Decoder](https://www.edaplayground.com/x/AahX)
 
 <br>
 
