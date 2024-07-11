@@ -12,6 +12,12 @@ def binary2char(binary: str) -> str:
     assert len(binary) <= 8, "binary2char() takes a binary string of length <= 8"
     return chr(binary2decimal(binary))
 
+def decimal2char(decimal: int) -> str:
+    return chr(decimal)
+
+def char2decimal(char: str) -> int:
+    return ord(char)
+
 def hex2binary(hexadecimal: str) -> str:
     return f"{int(hexadecimal, 16):08b}"
 
